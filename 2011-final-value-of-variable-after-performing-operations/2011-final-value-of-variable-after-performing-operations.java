@@ -5,13 +5,13 @@ class Solution {
         for (String s: operations)
         {
             if(s.equals("++X"))
-                x++;
+                ++x;
             else if(s.equals("X++"))
-                x++;
+                ++x;
             else if(s.equals("X--"))
-                x--;
+                --x;
             else if(s.equals("--X"))
-                x--;
+                --x;
             //System.out.println(x);
 
         }
