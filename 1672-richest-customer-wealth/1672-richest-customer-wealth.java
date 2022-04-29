@@ -9,8 +9,7 @@ class Solution {
         {
             s+=accounts[i][j];
         }
-        if(maxSum<s)
-            maxSum  = s;
+        maxSum = Math.max(maxSum,s);
     }
         return maxSum;
     }
