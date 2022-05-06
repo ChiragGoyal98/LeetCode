@@ -16,7 +16,6 @@ class Solution {
                 k++;
             }
         }
-        System.out.print(i + " " + j + " " + k);
         while(i<m)
         {
             
@@ -30,7 +29,6 @@ class Solution {
             k++;
             j++;
         }
-        System.out.print(k);
         for(int a=0; a<k; a++)
         {
             nums1[a] = ans[a];
