@@ -14,8 +14,7 @@ class Solution {
         ListNode temp = head;
         while(temp!=null)
         {
-            int a = temp.val;
-            stck.push(a);
+            stck.push(temp.val);
             temp = temp.next;
         }
         
@@ -23,8 +22,8 @@ class Solution {
         
         while(temp!=null)
         {
-            int a = stck.peek();
-            if(a == temp.val)
+            
+            if(stck.peek() == temp.val)
                 stck.pop();
             else
                 return false;
