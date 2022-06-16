@@ -1,25 +1,33 @@
 class Solution {
     public int minOperations(String[] logs) {
-        Stack<Boolean> stck = new Stack<>();
+        var stck = new Stack<>();
         
-        for(String var : logs)
+        for(String log : logs)
         {
-            switch (var){
-                case "../":{
-                    if(stck.size()!=0)
-                        stck.pop();
-                    break;
-                }
-                case "./":{
-                    break;
-                }
-                default:{
-                    stck.push(true);
-                    break;
-                }
+            // switch (var){
+            //     case "../":{
+            //         if(stck.size()!=0)
+            //             stck.pop();
+            //         break;
+            //     }
+            //     case "./":{
+            //         break;
+            //     }
+            //     default:{
+            //         stck.push(true);
+            //         break;
+            //     }
+            // }
+            if(log.equals("../")){
+                if(!stck.empty())
+                    stck.pop();
+            }else if(log.equals("./")){
+
+            }else{
+                stck.push(log);
             }
         }
-        int size = 0;
+        
         // while(stck!=0)
         // {
         //     stck.pop();
