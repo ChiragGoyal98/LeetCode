@@ -24,11 +24,11 @@ class Solution {
             slow = slow.next;
             fast = fast.next;
         }
-        ListNode second = slow;
+        //ListNode second = slow;
         
         var temp = first.val;
-        first.val = second.val;
-        second.val = temp;
+        first.val = slow.val;
+        slow.val = temp;
         return head;
     }
 }
