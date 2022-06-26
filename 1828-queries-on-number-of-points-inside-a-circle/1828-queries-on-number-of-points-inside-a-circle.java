@@ -4,11 +4,13 @@ class Solution {
         
         for(int i=0; i<queries.length; i++)
         {
-            int x1 = queries[i][0], y1 = queries[i][1], r = queries[i][2];
+            //int x1 = queries[i][0], y1 = queries[i][1], r = queries[i][2];
             for(int j=0; j<points.length; j++)
             {
-                int x2 = points[j][0], y2 = points[j][1];
-                ans[i] += isInside(x1,y1,x2,y2,r);
+                // int x2 = points[j][0], y2 = points[j][1];
+                // ans[i] += isInside(x1,y1,x2,y2,r);
+                if(Math.pow(queries[i][0]-points[j][0],2) + Math.pow(queries[i][1]-points[j][1],2) <= Math.pow(queries[i][2],2)) 
+                    ans[i]++;
             }
         }
         return ans;
