@@ -8,20 +8,18 @@ class Solution {
             for(int j=0; j<points.length; j++)
             {
                 int x2 = points[j][0], y2 = points[j][1];
-                Boolean a = isInside(x1,y1,x2,y2,r);
-                if(a == true)
-                    ans[i]++;
+                ans[i] += isInside(x1,y1,x2,y2,r);
             }
         }
         return ans;
     }
-    public boolean isInside(int x1, int y1, int x2, int y2, int r)
+    public int isInside(int x1, int y1, int x2, int y2, int r)
     {
         r *= r;
         int dist = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2);
         if(dist<=r)
-            return true;
-        return false;
+            return 1;
+        return 0;
         
     }
 }
