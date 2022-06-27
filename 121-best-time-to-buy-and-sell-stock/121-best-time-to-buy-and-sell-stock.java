@@ -11,15 +11,18 @@ class Solution {
 //             }
 //         }
 //         return maxDiff;
-        int lp=Integer.MAX_VALUE;
-        int p = 0;
-        int pt=0;
-        for(int i=0; i<prices.length; i++)
+        int leastSoFar = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        int profitIfSoldToday = 0;
+        
+        for(int ele : prices)
         {
-            lp = Math.min(lp, prices[i]);
-            pt = prices[i] - lp;
-            p = Math.max(p, pt);
+            if(ele < leastSoFar)
+                leastSoFar = ele;
+            
+            profitIfSoldToday = ele - leastSoFar;
+            maxProfit = Math.max(maxProfit, profitIfSoldToday);
         }
-        return p;
+        return maxProfit;
     }
 }
