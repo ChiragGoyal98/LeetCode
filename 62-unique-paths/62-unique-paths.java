@@ -1,36 +1,25 @@
 class Solution {
-    public int uniquePaths(int m, int n) {
-        // return helper(0, 0, m-1, n-1);
-        if(m == 1 || n == 1)
-            return 1;
-        m--;
-        n--;
-        if(m < n) {             
-            int t = m;
-            m = n;
-            n = t;
-        }
-        long res = 1;
-        int j = 1;
-        for(int i = m+1; i <= m+n; i++, j++){
-            res *= i;
-            res /= j;
-        }
-            
-        return (int)res;
+    public int uniquePaths(int n, int m) {
+        
+        int [][]dp = new int[n][m];
+        
+        return solve(0,0, n-1, m-1, dp);
     }
     
-//     public int helper(int i, int j, int m, int n){
-//         if(i==m && j==n)
-//             return 1;
+    public int solve(int sr, int sc, int dr, int dc, int[][]dp){
+        if(sr == dr && sc == dc){
+            return dp[sr][sc] = 1;
+        }
         
-//         int a=0, b=0;
+        if(dp[sr][sc]!=0)
+            return dp[sr][sc];
         
-//         if(i+1<=m)
-//             a = helper(i+1, j, m, n);
+        int ans = 0;
+        if(sc+1<=dc)
+            ans += solve(sr,sc+1,dr,dc,dp);
+        if(sr+1<=dr)
+            ans += solve(sr+1,sc,dr,dc,dp);
         
-//         if(j+1<=n)
-//             b = helper(i, j+1, m, n);
-//         return a+b;
-//     }
+        return dp[sr][sc] = ans;
+    }
 }
