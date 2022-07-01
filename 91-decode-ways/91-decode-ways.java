@@ -1,12 +1,13 @@
 class Solution {
     public int numDecodings(String s) {
         int []dp = new int[s.length()+1];
+        Arrays.fill(dp,-1);
         return numDecodings(s,0,dp);
     }
     public int numDecodings(String s, int idx, int []dp){
         if(idx == s.length())
             return dp[idx] = 1;
-        if(dp[idx]!=0)
+        if(dp[idx]!=-1)
             return dp[idx];
         
         if(s.charAt(idx) == '0')
