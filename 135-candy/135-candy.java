@@ -39,9 +39,10 @@ class Solution {
         {
             if(ratings[i]>ratings[i+1])
                 candies[i] = Math.max(candies[i+1]+1, candies[i]);
+            ans+=candies[i];
         }
-        for(int ele: candies)
-            ans+=ele;
-        return ans;
+        // for(int ele: candies)
+        //     ans+=ele;
+        return ans + candies[ratings.length-1];
     }
 }
