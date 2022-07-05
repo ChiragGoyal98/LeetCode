@@ -8,6 +8,12 @@ class Solution {
             {
                 flag = true;
                 zeroCount++;
+                if(zeroCount>1)
+                {
+                    int []ans = new int[nums.length];
+                    Arrays.fill(ans,0);
+                    return ans;
+                }
             }
             else
                 product *= ele;
@@ -17,8 +23,8 @@ class Solution {
             Arrays.fill(ans,0);
         else
             Arrays.fill(ans,product);
-        if(zeroCount>1)
-            return ans;
+        // if(zeroCount>1)
+        //     return ans;
         for(int i=0; i<nums.length; i++)
         {
             if(flag == true)
