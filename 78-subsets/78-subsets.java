@@ -1,21 +1,23 @@
 class Solution {
+    List<List<Integer>> ans;
+    int[] nums;
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
+        this.ans = new ArrayList<>();
+        this.nums = nums;
         Arrays.sort(nums);
-        backtrack(ans, new ArrayList<>(), nums, 0);
+        backtrack(new ArrayList<>(), 0);
         return ans;
     }
-    public void backtrack(List<List<Integer>> ans, List<Integer> tempList, int[] nums, int start){
+    public void backtrack(List<Integer> tempList, int start){
         //add current subset to ans
-        ans.add(new ArrayList<>(tempList));
-        
-        for(int i=start; i<nums.length; i++)
+        if(start == nums.length)
         {
-            
-            tempList.add(nums[i]);
-            backtrack(ans, tempList, nums, i+1);
-            //backtrack
-            tempList.remove(tempList.size()-1);
+            ans.add(new ArrayList<>(tempList)); //creating a copy of tempList and adding it to ans;
+            return;
         }
+        backtrack(tempList, start+1);
+        tempList.add(nums[start]);
+        backtrack(tempList, start+1);
+        tempList.remove(new Integer(nums[start]));
     }
 }
