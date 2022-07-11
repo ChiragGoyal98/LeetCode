@@ -1,10 +1,13 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        int size = nums.length;
-        if(size%2==0)
-            return nums[size/2-1];
-        else
-            return nums[size/2];
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        int n = nums.length;
+        for(int ele:nums)
+        {
+            hm.put(ele,hm.getOrDefault(ele,0)+1);
+            if(hm.get(ele)>n/2)
+                return ele;
+        }
+        return -1;
     }
 }
