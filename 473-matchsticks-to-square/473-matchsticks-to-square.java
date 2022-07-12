@@ -8,7 +8,7 @@ class Solution {
             return false;
         
         Arrays.sort(matchsticks);
-        if(matchsticks[0]>target)
+        if(matchsticks[matchsticks.length-1]>target)
             return false;
         int sides[] = new int[4];
         return dfs(matchsticks, 0, sides, target);
