@@ -1,5 +1,7 @@
 class Solution {
     public boolean isMatch(String s, String p) {
+        if(p.equals(".*"))
+			return true;
         boolean [][]dp = new boolean[s.length()+1][p.length()+1];
 
 		for(int j=0; j<dp[0].length; j++)
