@@ -12,8 +12,6 @@ class Solution {
 		{
 			for(int j=1; j<dp[0].length; j++)
 			{
-				
-				
 				if(pattern.charAt(j-1)=='?')
 					dp[i][j] = dp[i-1][j-1];
 				else if(pattern.charAt(j-1)=='*')
