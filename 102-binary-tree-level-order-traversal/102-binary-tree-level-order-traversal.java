@@ -26,16 +26,18 @@ class Solution {
         
         while(qu.size()!=0)
         {
-            int qLen = qu.size();
-            List<Integer> row = new ArrayList<>();
-            for(int i=0; i<qLen; i++)
+            int qSize = qu.size();
+            List<Integer> level = new ArrayList<>();
+            for(int i=0; i<qSize; i++)
             {
                 TreeNode curr = qu.poll();
-                row.add(curr.val);
-                if (curr.left != null) qu.add(curr.left);
-                if (curr.right != null) qu.add(curr.right);
+                level.add(curr.val);
+                if(curr.left!=null)
+                    qu.add(curr.left);
+                if(curr.right!=null)
+                    qu.add(curr.right);
             }
-            ans.add(row);
+            ans.add(level);   
         }
         
         return ans;
