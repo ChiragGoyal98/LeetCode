@@ -1,7 +1,7 @@
 class ParkingSystem {
-    private int []count;
+    private int []count = new int[3];;
     public ParkingSystem(int big, int medium, int small) {
-        count = new int[3];
+        //count = 
         count[0] = big;
         count[1] = medium;
         count[2] = small;
