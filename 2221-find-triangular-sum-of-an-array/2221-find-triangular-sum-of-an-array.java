@@ -5,7 +5,8 @@ class Solution {
         {
             for(int i=0; i<iter; i++)
             {
-                nums[i] = (nums[i]+nums[i+1])%10;
+                nums[i] += nums[i+1];
+                nums[i] %= 10;
             }
             iter--;
         }
