@@ -15,14 +15,27 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        if(root==null)
+        /*if(root==null)
             return;
         
-        root = helper(root);
+        root = helper(root);*/
+        
+        while(root!=null){
+            if(root.left!=null)
+            {
+                TreeNode prev = root.left;
+                while(prev.right!=null)
+                    prev = prev.right;
+                prev.right = root.right;
+                root.right = root.left;
+                root.left = null;
+            }
+            root = root.right;
+        }
             
         
     }
-    public TreeNode helper(TreeNode root){
+    /*public TreeNode helper(TreeNode root){
         if(root==null)
             return root;
         TreeNode rightChild = root.right, leftChild = root.left;
@@ -42,5 +55,5 @@ class Solution {
             head.right = helper(rightChild);
         }
         return head;
-    }
+    }*/
 }
