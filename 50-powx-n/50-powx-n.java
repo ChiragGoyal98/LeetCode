@@ -2,16 +2,16 @@ class Solution {
     public double myPow(double x, int n) {
         if(n==0)
             return 1;
-        double temp = x;        
-        temp = myPow(x,n/2);
-        if(n%2==0)
-            return temp*temp;
-        else
-        {
-            if(n>0)
-                return x*temp*temp;
+        if(x==0)
+            return 0;
+        double smallAns = myPow(x, n/2);
+        if(n%2 == 0)
+            return smallAns*smallAns;
+        else{
+            if(n>=0)
+                return smallAns*smallAns*x;
             else
-                return (1/x)*temp*temp;
+                return smallAns*smallAns*(1/x);
         }
     }
 }
