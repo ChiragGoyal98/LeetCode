@@ -5,13 +5,14 @@ class Solution {
         int ans=0;
         boolean isPrime[] = new boolean[n];
         Arrays.fill(isPrime, Boolean.TRUE);
-        isPrime[0] = false;
-        isPrime[1] = false;
-        isPrime[2] = true;
+        isPrime[0] = isPrime[1] = false;
         for(int i=2; i*i<n; i++)
         {
-            for(int k=2; i*k<n; k++)
-                isPrime[i*k] = false;
+            if(isPrime[i])
+            {
+                for(int k=2; i*k<n; k++)
+                    isPrime[i*k] = false;
+            }
         }
         for(int i=2; i<n; i++)
         {
